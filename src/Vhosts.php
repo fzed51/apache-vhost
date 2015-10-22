@@ -22,18 +22,19 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- **/
+ * */
 
 namespace fzed51\Apache;
 
 /**
- * 
- **/
-class VhostManager
+ *
+ * */
+class Vhosts
 {
 
-    function __construct(/*string*/ $folder)
+    function __construct(/* string */ $folder)
     {
         # code...
     }
+
 }
