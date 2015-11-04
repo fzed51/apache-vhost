@@ -15,5 +15,8 @@
         "psr-4": {
             "fzed51\\Apache\\": "src/"
         }
+    },
+    "require-dev": {
+        "fzed51/test-suite": "^1.0"
     }
 }
