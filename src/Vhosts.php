@@ -26,15 +26,48 @@
 
 namespace fzed51\Apache;
 
+use Exception;
+use fzed51\Apache\Vhost\Vhost;
+
 /**
  *
  * */
 class Vhosts
 {
 
+    private $vhosts;
+    
     function __construct(/* string */ $folder)
     {
-        # code...
+        $this->vhosts = [];
+        $confFiles = glob($folder . DIRECTORY_SEPARATOR . '*.conf');
+        print_r($confFiles);
+        foreach ($confFiles as $confFile) {
+            $this->addVhosts(self::parseConfFile($confFile));
+        }        
     }
-
+    
+    function addVhosts(Array $vhosts) {
+        foreach($vhosts as $vhost){
+            $this->addVhost($vhost);
+        }
+    }
+    
+    function addVhost(Vhost $vhost){
+        if(!isset($this->vhosts[$vhost->getServerName()])){
+            $this->vhosts[$vhost->getServerName()] = $vhost;
+        } else {
+            throw new Exception("le Virtual Host '{$vhost->serverName}' est déclaré 2 fois.");
+        }
+    }
+    
+    function update() {
+        
+    }
+    
+    static private function parseConfFile($filePath) {
+        $content = file_get_contents($filePath);
+        return [];
+    }
+    
 }

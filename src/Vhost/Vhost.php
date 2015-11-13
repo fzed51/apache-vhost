@@ -32,8 +32,14 @@ namespace fzed51\Apache\Vhost;
 class Vhost
 {
 
-    function __construct(/*string*/ $folder)
+    private $serverName;
+
+    function __construct($serveurName)
     {
-        # code...
+        $this->serverName = $serveurName;
+    }
+    
+    function getServerName() {
+        
     }
 }
